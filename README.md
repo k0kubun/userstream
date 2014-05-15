@@ -26,4 +26,4 @@ func main() {
 
 ## License
 
-public domain
+MIT License
