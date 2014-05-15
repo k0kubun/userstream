@@ -9,7 +9,7 @@ import (
 
 var (
 	userStreamsEndPoint = "https://userstream.twitter.com/1.1/user.json"
-	requestTokenUrl     = "http://api.twitter.com/oauth/request_token"
+	requestTokenUrl     = "https://api.twitter.com/oauth/request_token"
 	authorizeTokenUrl   = "https://api.twitter.com/oauth/authorize"
 	accessTokenUrl      = "https://api.twitter.com/oauth/access_token"
 )
