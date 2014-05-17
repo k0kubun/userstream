@@ -2,7 +2,6 @@ package userstream
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/k0kubun/twitter"
 	"strings"
 )
