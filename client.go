@@ -21,11 +21,11 @@ type Client struct {
 	AccessTokenSecret string
 }
 
-func (c *Client) UserStream(callback func(string)) {
+func (c *Client) UserStream(callback func(interface{})) {
 	c.connect(userStreamsEndPoint, callback)
 }
 
-func (c *Client) connect(endPoint string, callback func(string)) {
+func (c *Client) connect(endPoint string, callback func(interface{})) {
 	consumer := oauth.NewConsumer(
 		c.ConsumerKey,
 		c.ConsumerSecret,
@@ -44,7 +44,7 @@ func (c *Client) connect(endPoint string, callback func(string)) {
 	c.readStream(response, callback)
 }
 
-func (c *Client) readStream(response *http.Response, callback func(string)) {
+func (c *Client) readStream(response *http.Response, callback func(interface{})) {
 	reader := bufio.NewReader(response.Body)
 	for {
 		line, err := reader.ReadBytes('\n')
@@ -53,7 +53,8 @@ func (c *Client) readStream(response *http.Response, callback func(string)) {
 		}
 
 		if len(line) > 0 && string(line) != "\r\n" {
-			callback(string(line))
+			object := ParseJson(string(line))
+			callback(object)
 		}
 	}
 }
