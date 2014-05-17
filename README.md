@@ -10,7 +10,7 @@ package main
 import "github.com/k0kubun/userstream"
 
 func main() {
-	client := &Client{
+	client := &userstream.Client{
 		ConsumerKey:       "CONSUMER_KEY",
 		ConsumerSecret:    "CONSUMER_SECRET",
 		AccessToken:       "ACCESS_TOKEN",
