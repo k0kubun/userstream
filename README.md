@@ -17,8 +17,8 @@ func main() {
 		AccessTokenSecret: "ACCESS_TOKEN_SECRET",
 	}
 
-	client.UserStream(func(object interface{}) {
-		switch object.(type) {
+	client.UserStream(func(event interface{}) {
+		switch event.(type) {
 		case *userstream.Tweet:
 			tweet := object.(*userstream.Tweet)
 			fmt.Printf("%s: %s\n", tweet.User.ScreenName, tweet.Text)
