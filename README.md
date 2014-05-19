@@ -8,6 +8,7 @@ Simple Twitter UserStream client with OAuth for Golang
 package main
 
 import "github.com/k0kubun/userstream"
+import "github.com/k0kubun/twitter"
 
 func main() {
 	client := &userstream.Client{
@@ -19,8 +20,8 @@ func main() {
 
 	client.UserStream(func(event interface{}) {
 		switch event.(type) {
-		case *userstream.Tweet:
-			tweet := event.(*userstream.Tweet)
+		case *twitter.Tweet:
+			tweet := event.(*twitter.Tweet)
 			fmt.Printf("%s: %s\n", tweet.User.ScreenName, tweet.Text)
 		case *userstream.Delete:
 			tweetDelete := event.(*userstream.Delete)

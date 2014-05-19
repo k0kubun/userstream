@@ -54,7 +54,7 @@ func ParseJson(jsonText string) interface{} {
 		decoder.Decode(&deleteHash)
 		return deleteHash["delete"]["status"]
 	} else if _, hasKey := hash["created_at"]; hasKey {
-		tweet := Tweet{}
+		tweet := twitter.Tweet{}
 		decoder.Decode(&tweet)
 		return &tweet
 	}
