@@ -36,7 +36,7 @@ func (c *Client) connect(endPoint string, callback func(interface{})) {
 		},
 	)
 
-	response, err := consumer.Post(endPoint, nil, c.accessToken())
+	response, err := consumer.Get(endPoint, nil, c.accessToken())
 	if err != nil {
 		log.Fatal(err)
 	}
